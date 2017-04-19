@@ -1,6 +1,8 @@
 $.when($.ready).then(function(){
 
   $(".new-tweet").on('keyup', 'textarea', function(event){
-    console.log($(this).parent().children('.counter').text(140 - $(this).val().length));
+    var counter = $(this).parent().children('.counter');
+    counter.text(140 - $(this).val().length);
+    counter.toggleClass('negative', counter.text() < 0)
   });
 });
