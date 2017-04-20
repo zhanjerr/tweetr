@@ -43,7 +43,7 @@ var data = [
     "content": {
       "text": "this is the last tweet"
     },
-    "created_at": 1461113796368
+    "created_at": 1492658281699
   }
 ];
 
@@ -56,12 +56,30 @@ var data = [
           </header>
           <p>${data.content.text}</p>
           <footer>
-            <span>${data.created_at}</span>
+            <span>${getTimeDiff(data.created_at)}</span>
             <i class="fa fa-heart" aria-hidden="true"></i>
             <i class="fa fa-retweet" aria-hidden="true"></i>
             <i class="fa fa-flag" aria-hidden="true"></i>
           </footer>
         </article>`;
+  }
+
+  function getTimeDiff (time) {
+    let currentTime = Date.now();
+    let diff = currentTime - time ;
+    if (diff < 60000) {
+      return "just now";
+    } else if (diff < 3600000) {
+      return `${Math.floor(diff / 60000)} minutes ago`;
+    } else if (diff < 86400000) {
+      // time in hours
+      return `${Math.floor(diff / 3600000)} hours ago`;
+    } else if (diff < 31536000000) {
+      // time in days
+      return `${Math.floor(diff / 86400000)} days ago`;
+    } else {
+      return `${Math.floor(diff / 31536000000)}+ years ago`;
+    }
   }
 
   function renderTweets(tweets) {
