@@ -31,11 +31,26 @@ nav {
 }
 
 #nav-bar i {
-  margin: 50%;
+  /*margin: 50%;*/
   opacity: 50%;
 }
 
-#nav-bar i:hover {
+.add-tweet-button-wrapper {
+  height: 80px;
+  width: 80px;
+  position: relative;
+}
+
+
+.add-tweet-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.add-tweet-button:hover {
+  font-size: 3em;
   color: white;
   text-shadow: 2px 2px grey;
 }
