@@ -39,13 +39,13 @@ function renderTweets(tweets) {
   })
 }
 
-function loadTweets() {
-  $.ajax({
-    url: '/tweets',
-    method: 'GET',
-  }).then(data => {
-    renderTweets(data);
-  })
+function loadTweets(bol) {
+    $.ajax({
+      url: '/tweets',
+      method: 'GET',
+    }).then(data => {
+      renderTweets(data);
+    })
 }
 
 $(document).ready(function() {
@@ -62,9 +62,17 @@ $(document).ready(function() {
         url: '/tweets',
         method: 'POST',
         data: $(this).serialize()
+      }).then(function(data) {
+        loadTweets();
+        $('.new-tweet').find('textarea').val('');
       })
     }
   });
+
+  $('#nav-bar').find('i').on('click', event => {
+    $('.new-tweet').toggle();
+    $('.new-tweet').find('textarea').focus();
+  })
 
   loadTweets();
 });

@@ -1,5 +1,4 @@
 /*navigation bar*/
-
 nav {
   height: 80px;
   width: 100%;
@@ -23,4 +22,20 @@ nav {
   margin-left: 10px;
   line-height: 80px;
   font-size: 32px;
+}
+
+#nav-bar div {
+  float: right;
+  height: 80px;
+  text-align: center;
+}
+
+#nav-bar i {
+  margin: 50%;
+  opacity: 50%;
+}
+
+#nav-bar i:hover {
+  color: white;
+  text-shadow: 2px 2px grey;
 }
