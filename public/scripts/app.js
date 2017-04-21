@@ -20,13 +20,17 @@ function getTimeDiff (time) {
   let diff = currentTime - time ;
   if (diff < 60000) {
     return "just now";
-  } else if (diff < 3600000) {
+  } else if (diff < 120000) {
+    return "1 minute ago";
+  } else if (diff < 3600000){
     return `${Math.floor(diff / 60000)} minutes ago`;
+  }else if (diff < 7200000) {
+    return `${Math.floor(diff / 3600000)} hour ago`;
   } else if (diff < 86400000) {
-    // time in hours
     return `${Math.floor(diff / 3600000)} hours ago`;
+  } else if (diff < 172800000) {
+    return `${Math.floor(diff / 86400000)} day ago`;
   } else if (diff < 31536000000) {
-    // time in days
     return `${Math.floor(diff / 86400000)} days ago`;
   } else {
     return `${Math.floor(diff / 31536000000)}+ years ago`;
